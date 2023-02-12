@@ -1,0 +1,154 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost&family=Roboto&display=swap");
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+html {
+  scroll-behavior: smooth !important;
+}
+
+* {
+  margin: 0 auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+}
+
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  background-color: white;
+  height: auto;
+  color: #000;
+}
+
+.loader {
+  margin-bottom: 3em;
+}
+
+.navigation {
+  float: left;
+}
+
+.posts {
+  float: left;
+  width: 600px;
+  transition: 0.3s ease-in-out;
+}
+
+.logout {
+  float: right;
+}
+
+.prof {
+  width: 80px;
+  height: 80px;
+}
+
+.profile {
+  width: 600px;
+}
+
+.delete {
+  background-color: rgba(0, 0, 255, 0.1);
+  color: gray;
+  padding: 0.1em 0.8em;
+  border-radius: 6px;
+  float: right;
+  margin-top: -3.5em;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.ico {
+  padding: 0.2em;
+  margin-right: 0.5em;
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 42px;
+  height: 18px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 12px;
+  width: 12px;
+  left: 2px;
+  bottom: 3px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: lightgreen;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.load-more {
+  position: fixed;
+  margin-left: 700px;
+  background-color: white;
+  padding: 1em;
+  border-radius: 22px;
+}
+
+textarea {
+  resize: none;
+}
+
+.mobile-menu {
+  height: auto;
+  color: white;
+  height: 3em;
+  transition: 1s ease-in-out;
+  background-color: black;
+}
+
+header {
+  transition: 1s ease-in-out;
+}
