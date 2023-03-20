@@ -3,7 +3,7 @@ import NewPost from "../components/newPost";
 import { useQuery, useMutation } from "@apollo/client";
 import React, { useState, useEffect } from "react";
 import { GET_CURRENT_USER, ALL_POSTS } from "../utils/Queries";
-import { DELETE_POST, LIKE_POST, POST_BOOKMARK } from "../utils/Mutations";
+import { DELETE_POST, LIKE_POST } from "../utils/Mutations";
 import { Spinner } from "../components/Spinner";
 
 export default function Posts() {
@@ -16,9 +16,6 @@ export default function Posts() {
   const [likePost] = useMutation(LIKE_POST, {
     refetchQueries: [ALL_POSTS ],
     fetchPolicy: "network-only",
-  });
-  const [bookmarkPost] = useMutation(POST_BOOKMARK, {
-    refetchQueries: [ALL_POSTS],
   });
 
   const {
@@ -68,36 +65,7 @@ export default function Posts() {
     }
   };
 
-  // bookmark post
-  const checkBookmark = (post) => {
-    const handleBookmark = () => {
-      bookmarkPost({
-        variables: { id: currentUser.id, postId: post.id },
-        refetchQueries: [ALL_POSTS, GET_CURRENT_USER],
-        fetchPolicy: "network-only",
-      });
-    };
-
-    if (currentUser.bookmarks.find((bookmark) => bookmark.id === post.id)) {
-      return (
-        <button
-          className="bg-orange-100 p-2 rounded-lg"
-          onClick={handleBookmark}
-        >
-          Already bookmarked
-        </button>
-      );
-    } else {
-      return (
-        <button
-          className="bg-orange-400 p-2 rounded-lg text-white"
-          onClick={handleBookmark}
-        >
-          Bookmark
-        </button>
-      );
-    }
-  };
+  // bookmark post check code to be
 
   // like the post
   const checkLike = (post) => {
@@ -189,7 +157,7 @@ export default function Posts() {
                 <br />
                 <div className="text-slate-500">
                   {post.likedBy.length} {checkLike(post)}
-                  <div className="rounded-lg mt-2">{checkBookmark(post)}</div>
+                  <div className="rounded-lg mt-2">BKMRK</div>
                 </div>
               </div>
             </div>
