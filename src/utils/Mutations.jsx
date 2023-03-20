@@ -66,15 +66,6 @@ export const LOGIN_MUTATION = gql`
         role
         followers
         following 
-        bookmarks {
-          id
-          title
-          content
-          postImage
-          postedBy {
-            id
-          }
-        }
         bio {
           id
           body
