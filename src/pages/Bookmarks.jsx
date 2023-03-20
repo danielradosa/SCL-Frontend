@@ -6,7 +6,7 @@ export default function Bookmarks() {
   const currentUser = JSON.parse(
     localStorage.getItem("currentUser") || sessionStorage.getItem("currentUser")
   );
-
+  
   const {
     data: bookmarksData,
     loading: bookmarksLoading,

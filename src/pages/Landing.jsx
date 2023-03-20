@@ -10,7 +10,7 @@ import {
 export default function Landing() {
   const showScrollToTop = () => {
     const scrollToTop = document.querySelector(".scroll-to-top");
-    if (window.scrollY > 100) {
+    if (window.scrollY > 1000) {
       scrollToTop.classList.remove("hidden");
     } else {
       scrollToTop.classList.add("hidden");

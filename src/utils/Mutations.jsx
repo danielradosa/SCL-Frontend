@@ -99,6 +99,7 @@ export const SIGNUP_MUTATION = gql`
     $handle: String!
     $username: String!
     $role: String!
+    $artist: Boolean!
   ) {
     register(
       email: $email
@@ -106,6 +107,7 @@ export const SIGNUP_MUTATION = gql`
       handle: $handle
       username: $username
       role: $role
+      artist: $artist
     ) {
       id
       email
@@ -113,6 +115,7 @@ export const SIGNUP_MUTATION = gql`
       username
       password
       role
+      artist
     }
   }
 `;

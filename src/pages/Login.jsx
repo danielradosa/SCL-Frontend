@@ -32,8 +32,10 @@ export default function Login() {
         const storage = remember ? localStorage : sessionStorage;
         storage.setItem("token", data.login.token);
         storage.setItem("currentUser", JSON.stringify(data.login.allUserInfo));
-        navigate("/dashboard", { replace: true });
-        window.location.reload();
+        setTimeout(() => {
+          navigate("/dashboard", { replace: true });
+          window.location.reload();
+        }, 1500);
       }
     },
     [email, password, remember, loginMutation, navigate]
@@ -44,7 +46,7 @@ export default function Login() {
       <HeaderLanding />
       <div className="mt-12 2xl:mt-20">
       <h3 className="text-center text-3xl pb-4">
-          Login <i className="border-b-2 border-black/30">now</i>
+          Prihlás sa <i className="border-b-2 border-black/30">teraz</i>
         </h3>
         <form onSubmit={handleLogin} className="grid w-64 2xl:w-96 mt-6">
           <div className="l">{loggedInState === true ? <Spinner /> : ""}</div>
@@ -64,7 +66,7 @@ export default function Login() {
             className="pl-6 pt-3 pb-3 pr-6 rounded-3xl border-2 border-black text-orange-400 
             font-bold focus:bg-white"
             type="password"
-            placeholder="Password"
+            placeholder="Heslo"
             value={password}
             minLength={6}
             maxLength={52}
@@ -78,13 +80,13 @@ export default function Login() {
               checked={remember}
               onChange={(e) => setRemember(e.target.checked)}
             />{" "}
-            Remember me
+            Zapamätať si účet
           </label>
           <button
             type="submit"
             className="w-1/2 m-auto text-center transition-all duration-300 ease-out hover:ease-in mt-6 font-bold  pt-2 pb-2 bg-orange-400 text-white rounded-3xl text-lg bg-gradient-to-r from-orange-400 to-orange-600 hover:from-orange-600 hover:to-orange-400"
           >
-            Sign in
+            Prihlásiť sa
           </button>
         </form>
       </div>

@@ -29,7 +29,7 @@ const HeaderLanding = () => {
               className="duration-300 text-orange-600 transition-all hover:italic hover:border-b-2 hover:border-black/30 border-b-2 border-black/0"
               href="/artists"
             >
-              Plans for artists
+              Plány pre tatérov
             </a>
           </nav>
         </div>
@@ -49,7 +49,7 @@ const HeaderLanding = () => {
             Roadmap
           </a>
           <a href="/artists" className="mt-4 text-center">
-            Plans for artists
+            Plány pre tatérov
           </a>
         </nav>
       </div>

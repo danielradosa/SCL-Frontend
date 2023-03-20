@@ -6,10 +6,11 @@ const LogoutButton = () => {
   const navigate = useNavigate();
 
   const handleLogout = useCallback(() => {
-    sessionStorage.removeItem("token");
-    sessionStorage.removeItem("currentUser");
     localStorage.removeItem("token");
     localStorage.removeItem("currentUser");
+    sessionStorage.removeItem("token");
+    sessionStorage.removeItem("currentUser");
+    window.localStorage.clear();
     Swal.fire({
       title: "Logged out!",
       text: "You have now logged out",

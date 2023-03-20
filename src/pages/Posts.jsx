@@ -14,7 +14,7 @@ export default function Posts() {
     fetchPolicy: "network-only",
   });
   const [likePost] = useMutation(LIKE_POST, {
-    refetchQueries: [ALL_POSTS],
+    refetchQueries: [ALL_POSTS ],
     fetchPolicy: "network-only",
   });
   const [bookmarkPost] = useMutation(POST_BOOKMARK, {
@@ -123,22 +123,6 @@ export default function Posts() {
     }
   };
 
-  // load more older posts
-  window.onscroll = () => {
-    if (
-      window.innerHeight + document.documentElement.scrollTop ===
-      document.documentElement.offsetHeight
-    ) {
-      fetchMore({
-        variables: {
-          offset: posts.length,
-        },
-      }).then((res) => {
-        setPosts([...posts, ...res.data.getAllPosts]);
-      });
-    }
-  };
-
   // show button to refetch posts
   const refetchPosts = () => {
     fetchMore({
@@ -162,8 +146,6 @@ export default function Posts() {
       </button>
       <div className="mt-2">
         {posts
-          .slice(0)
-          .reverse()
           .map((post) => (
             <div
               className="bg-white p-6 rounded-lg shadow-lg mt-8 mb-4"

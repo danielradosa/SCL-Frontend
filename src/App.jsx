@@ -1,12 +1,24 @@
 import "./styles.css";
-import React from "react";
+import React, { lazy } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import IsAuthenticated from "./components/IsAuthenticated";
 import { LogoutButton } from "./components/logoutButton";
 import { Navigation } from "./components/navigation";
 import ProfileSettings from "./components/profileSettings";
 import { Header } from "./components/header";
-import { Landing, Cookies, Bookmarks, Discover, Login, Posts, Profile, Roadmap, Signup, ArtistPlans } from "./pages/index";
+import Profile  from "./pages/Profile";
+import Posts from "./pages/Posts";
+import Bookmarks from "./pages/Bookmarks";
+import Discover from "./pages/Discover";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import ArtistSignup from "./pages/ArtistSignup";
+
+// lazy load some components
+const Landing = lazy(() => import("./pages/Landing"));
+const ArtistPlans = lazy(() => import("./pages/Artists"));
+const Cookies = lazy(() => import("./pages/Cookies"));
+const Roadmap = lazy(() => import("./pages/Roadmap"));
 
 function App() {
   return (
@@ -19,6 +31,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/roadmap" element={<Roadmap />} />
         <Route path="/artists" element={<ArtistPlans />} />
+        <Route path="/artist-signup" element={<ArtistSignup />} />
 
         {/* Protected routes */}
         <Route
