@@ -11,12 +11,6 @@ export const GET_CURRENT_USER = gql`
       email
       followers
       following
-      bookmarks {
-        id
-        title
-        content
-        postImage
-      }
       bio {
         id
         body
