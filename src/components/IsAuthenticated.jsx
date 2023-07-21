@@ -1,15 +1,17 @@
 import { Outlet, Navigate } from "react-router-dom";
 
 const useAuth = () => {
+  const remember = JSON.parse(localStorage.getItem("remember"));
   const user = sessionStorage.getItem("token");
-  if (user) {
+
+  if (user || remember) {
     return true;
   } else {
     return false;
   }
 };
 
-const IsAuthenticated = (props) => {
+const IsAuthenticated = () => {
   const auth = useAuth();
 
   return auth ? <Outlet /> : <Navigate to="/login" />;
