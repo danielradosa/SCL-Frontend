@@ -20,7 +20,7 @@ export default function Login() {
   const handleLogin = useCallback(
     async (e) => {
       e.preventDefault();
-  
+
       try {
         setLoggedInState(true);
         const { data } = await loginMutation({
@@ -29,31 +29,30 @@ export default function Login() {
             password,
           },
         });
-  
+
         const storage = remember ? localStorage : sessionStorage;
         storage.setItem("remember", JSON.stringify(remember));
         storage.setItem("token", data.login.token);
         storage.setItem("currentUser", JSON.stringify(data.login.allUserInfo));
 
         navigate("/dashboard", { replace: true });
-      } catch (error) {
-      }
+      } catch (error) {}
     },
     [email, password, remember, loginMutation, navigate]
   );
 
   return (
-    <div className="mx-auto w-full backdrop-blur-xl bg-white rounded-xl transition-all duration-300">
+    <div className="w-[960px] flex-col">
       <HeaderLanding />
-      <div className="mt-12 2xl:mt-20">
-      <h3 className="text-center text-3xl pb-4">
-          Prihlás sa <i className="border-b-2 border-black/30">teraz</i>
-        </h3>
-        <form onSubmit={handleLogin} className="grid w-64 2xl:w-96 mt-6">
-          <div className="l">{loggedInState === true ? <Spinner /> : ""}</div>
+      <div>
+        <h3 className="text-2xl pb-4">Login</h3>
+        <form
+          onSubmit={handleLogin}
+          className="mt-4 flex-col flex w-[360px] mx-0"
+        >
+          <div className="mx-0 mb-6">{loggedInState === true ? "Logging in..." : ""}</div>
           <input
-            className="pl-6 pt-3 pb-3 pr-6 rounded-3xl border-2 border-black text-orange-400 
-            font-bold focus:bg-white"
+            className="p-3 rounded-[5px] border border-black/5 text-blue-600  focus:bg-white"
             type="email"
             placeholder="E-mail"
             value={email}
@@ -61,11 +60,10 @@ export default function Login() {
             maxLength={52}
             onChange={(e) => setEmail(e.target.value)}
             required
-          />{" "}
+          />
           <br />
           <input
-            className="pl-6 pt-3 pb-3 pr-6 rounded-3xl border-2 border-black text-orange-400 
-            font-bold focus:bg-white"
+            className="p-3 rounded-[5px] border border-black/5 text-blue-600 focus:bg-white"
             type="password"
             placeholder="Heslo"
             value={password}
@@ -73,21 +71,23 @@ export default function Login() {
             maxLength={52}
             onChange={(e) => setPassword(e.target.value)}
             required
-          />{" "}
-          <label className="text-black">
+          />
+          <label className="text-black mx-0">
             <input
-              className="mt-5"
+              className="mt-6"
               type="checkbox"
               checked={remember}
               onChange={(e) => setRemember(e.target.checked)}
             />{" "}
-            Zapamätať si účet
+            Remember me
           </label>
           <button
             type="submit"
-            className="w-1/2 m-auto text-center transition-all duration-300 ease-out hover:ease-in mt-6 font-bold  pt-2 pb-2 bg-orange-400 text-white rounded-3xl text-lg bg-gradient-to-r from-orange-400 to-orange-600 hover:from-orange-600 hover:to-orange-400"
+            className="w-1/2 m-auto text-center transition-all duration-300 ease-out hover:ease-in mt-6 font-bold  
+            pt-2 pb-2 bg-blue-600 text-white rounded-[5px] bg-gradient-to-r from-blue-400 to-blue-600 
+            hover:from-blue-600 hover:to-blue-400 mx-0"
           >
-            Prihlásiť sa
+            Login
           </button>
         </form>
       </div>

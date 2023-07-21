@@ -1,11 +1,12 @@
 import React from "react";
 
 const LandingFooter = () => {
-    return (
-        <div className="w-full h-8 bg-orange-400 fixed bottom-0 backdrop-blur-lg z-50">
-            <p className="text-center text-white mt-2 text-sm">SOCIALink © 2060 - Všetky práva vyhradené</p>
-        </div>
-    )
-}
+  return (
+    <div className="w-[960px]">
+      <h2 className="text-2xl mt-6 mb-6">Footer</h2>
+      <p><strong>Last updated:</strong> 21st July 2023 - No copyright, steal as you please.</p>
+    </div>
+  );
+};
 
-export default LandingFooter
+export default LandingFooter;
