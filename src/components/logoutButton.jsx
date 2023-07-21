@@ -1,29 +1,26 @@
+import React from "react";
 import { useNavigate } from "react-router-dom";
-import React, { useCallback } from "react";
-import Swal from "sweetalert2";
+import { useApolloClient } from "@apollo/client";
 
 const LogoutButton = () => {
   const navigate = useNavigate();
+  const client = useApolloClient();
 
-  const handleLogout = useCallback(() => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("currentUser");
-    sessionStorage.removeItem("token");
-    sessionStorage.removeItem("currentUser");
-    window.localStorage.clear();
-    Swal.fire({
-      title: "Logged out!",
-      text: "You have now logged out",
-      icon: "success",
-      confirmButtonText: "Close",
+  const logout = async () => {
+    const remember = JSON.parse(localStorage.getItem("remember"));
+    const storage = remember ? localStorage : sessionStorage;
+    storage.clear();
+
+    await client.clearStore().then(() => {
+      client.resetStore();
+      navigate("/login", { replace: true });
     });
-    navigate("/login");
-  }, [navigate]);
+  };
 
   return (
     <div className="logout">
       <button
-        onClick={handleLogout}
+        onClick={logout}
         className="bg-white rounded-lg text-slate-400 pl-4 pr-4 mt-6 mr-6 shadow-sm"
       >
         Logout
