@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from "react";
-import { useMutation, useQuery } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
 import { LOGIN_MUTATION } from "../utils/Mutations";
 import { GET_CURRENT_USER } from "../utils/Queries";
@@ -17,25 +17,29 @@ export default function Login() {
     refetchQueries: [GET_CURRENT_USER],
   });
 
-  // set current user to local and session storage
   const handleLogin = useCallback(
-    async (e, remember) => {
+    async (e) => {
       e.preventDefault();
-      setLoggedInState(true);
-      const { data } = await loginMutation({
-        variables: {
-          email,
-          password,
-        },
-      });
-      if (data) {
+  
+      try {
+        setLoggedInState(true);
+        const { data } = await loginMutation({
+          variables: {
+            email,
+            password,
+          },
+        });
+  
         const storage = remember ? localStorage : sessionStorage;
+        storage.setItem("remember", JSON.stringify(remember));
         storage.setItem("token", data.login.token);
         storage.setItem("currentUser", JSON.stringify(data.login.allUserInfo));
+
         setTimeout(() => {
           navigate("/dashboard", { replace: true });
           window.location.reload();
         }, 1500);
+      } catch (error) {
       }
     },
     [email, password, remember, loginMutation, navigate]
