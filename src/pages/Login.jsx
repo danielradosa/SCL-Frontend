@@ -35,10 +35,7 @@ export default function Login() {
         storage.setItem("token", data.login.token);
         storage.setItem("currentUser", JSON.stringify(data.login.allUserInfo));
 
-        setTimeout(() => {
-          navigate("/dashboard", { replace: true });
-          window.location.reload();
-        }, 1500);
+        navigate("/dashboard", { replace: true });
       } catch (error) {
       }
     },
