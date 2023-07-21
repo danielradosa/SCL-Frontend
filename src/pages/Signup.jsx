@@ -10,38 +10,52 @@ const Signup = () => {
   const [passwordC, setPasswordC] = useState("");
   const [handle, setHandle] = useState("");
   const [username, setUsername] = useState("");
+  const [error, setError] = useState("");
   const role = "USER";
   const artist = false;
 
   const [signupMutation] = useMutation(SIGNUP_MUTATION);
 
   const handleSubmit = useCallback(
-    (e) => {
+    async (e) => {
       e.preventDefault();
-      if (password === passwordC) {
-        signupMutation({
-          variables: { email, password, handle: "@" + handle, username, role, artist },
+
+      if (password !== passwordC) {
+        setError("Passwords do not match.");
+        return;
+      }
+
+      if (password.length < 6) {
+        setError("Password must be at least 6 characters long.");
+        return;
+      }
+
+      if (handle.length < 4) {
+        setError("Username must be at least 4 characters long.");
+        return;
+      }
+
+      if (email.length < 6) {
+        setError("Email must be at least 6 characters long.");
+        return;
+      }
+
+      try {
+        await signupMutation({
+          variables: { email, password, handle, username, role, artist },
         });
+        setError("");
         Swal.fire({
-          title: "Super!",
-          text: "Úspešne si si vytvoril účet",
+          title: "Registration was succesfull.",
+          text: "You can now login.",
           icon: "success",
-          confirmButtonText: "Prihlásiť sa",
-        }).then((result) => {
-          if (result.isConfirmed) {
-            window.location.href = "/login";
-          }
+          confirmButtonText: "Ok",
         });
-      } else {
-        Swal.fire({
-          title: "Error!",
-          text: "Heslá sa nezhodujú",
-          icon: "error",
-          confirmButtonText: "Skúsiť znovu",
-        });
+      } catch (error) {
+        setError(error.message);
       }
     },
-    [email, password, handle, username, role, signupMutation]
+    [email, password, passwordC, handle, username, signupMutation]
   );
 
   return (
@@ -98,7 +112,7 @@ const Signup = () => {
             placeholder="Použivateľské Meno"
             value={username}
             required
-            minLength={3}
+            minLength={4}
             onChange={(e) => setUsername(e.target.value)}
           />{" "}
           <br />
