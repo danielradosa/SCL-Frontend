@@ -22,7 +22,7 @@ const Header = () => {
     <div className="flex w-full backdrop-blur-md fixed shadow-lg z-40">
       <div className="flex mt-4 mb-4">
         <h2 className="mr-2 text-lg leading-10">
-          SOCIAL<span className="text-black">ink</span>
+          ARCADIA
         </h2>
         <input
           type="search"

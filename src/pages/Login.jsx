@@ -3,7 +3,6 @@ import { useMutation } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
 import { LOGIN_MUTATION } from "../utils/Mutations";
 import { GET_CURRENT_USER } from "../utils/Queries";
-import { Spinner } from "../components/Spinner";
 import { HeaderLanding } from "../components/Landing";
 
 export default function Login() {

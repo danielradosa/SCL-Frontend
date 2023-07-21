@@ -5,9 +5,9 @@ const AboutSection = () => {
     <div className="w-[960px]">
      <h2 className="mt-6 mb-6 text-2xl">About</h2>
      <p>
-        Socialink is a social media platform that allows you to connect with
-        friends and family. You can share your thoughts, photos, videos, and
-        more. You can also chat with your friends and family.
+        Arcadia is a social media platform just like Twitter, but it actually
+        works and doesn't use any algorithms. It was built in a month or so.
+        Probably less. It also has only posting and liking features so far.
      </p>
     </div>
   );

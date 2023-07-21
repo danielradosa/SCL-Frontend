@@ -6,7 +6,7 @@ const HeaderLanding = () => {
 
   return (
     <div className="w-[960px]">
-      <h1 className="text-4xl font-bold mt-6 mb-6">SOCIALINK</h1>
+      <h1 className="text-4xl font-bold mt-6 mb-6">ARCADIA</h1>
     </div>
   );
 };

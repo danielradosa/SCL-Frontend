@@ -9,14 +9,14 @@ const ArtistPlans = () => {
         <div className="md:mt-8">
           <h3 className="font-bold mt-16 mb-16 text-center">
             <span className="text-6xl border-b-2 border-black/30 italic">
-              Plány pre tatérov
+              Plans
             </span>
           </h3>
           <div className="flex flex-col xl:flex-row space-x-13 xl:items-start xl:space-x-8">
             <div className="border border-black rounded-3xl p-8 w-72 mb-8 bg-black text-white">
               <h3 className="text-3xl font-bold">Free</h3>
               <h6 className="border-b-black/30 border-b pb-8">
-                Pre tých začínajúcich
+                Plan 0
               </h6>
               <ul className="mt-4">
                 <li>
@@ -41,7 +41,7 @@ const ArtistPlans = () => {
             <div className="border border-black rounded-3xl p-8 w-72 mb-8">
               <h3 className="text-3xl font-bold">Inkster</h3>
               <h6 className="border-b-black/30 border-b pb-8">
-                Pre skúsených tatérov
+                Plan 1
               </h6>
               <ul className="mt-4">
                 <li>
@@ -67,7 +67,7 @@ const ArtistPlans = () => {
             <div className="border border-black rounded-3xl p-8 w-72 mb-16">
               <h3 className="text-3xl font-bold">Artisan</h3>
               <h6 className="border-b-black/30 border-b pb-8">
-                Pre majstrov umenia
+                Plan 2
               </h6>
               <ul className="mt-4">
                 <li>
