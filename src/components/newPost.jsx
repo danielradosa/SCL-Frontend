@@ -79,49 +79,44 @@ export default function NewPost() {
   );
 
   return (
-    <div className="bg-white shadow-lg rounded-lg p-4 mt-8">
+    <div className="bg-white mt-6">
       <form onSubmit={createPost}>
-        <h2 className="text-2xl p-2">Create new post</h2>
         <input
-          className="p-2 rounded-lg text-slate-700 border-2 border-slate-200 ml-2 mt-2"
+          className="p-2 border-2 border-black text-md"
           type="text"
           placeholder="Title"
           name="title"
           maxLength={32}
         />{" "}
-        <span className="font-thin"> * not required</span> <br />
-        <div className="flex ml-2 ">
-          <img
-            src={profilePicture}
-            alt="prof_pic"
-            className="rounded-lg mt-4 ml-0 prof"
-          />
+        <span> * not required</span> <br />
+        <div className="flex">
+
           <textarea
-            className="w-full p-4 text-xl border-2 m-4 rounded-lg"
+            className="w-full p-2 border-2 mt-6 border-black text-md"
             name="content"
             required
             minLength={6}
             rows="5"
             cols="33"
-            placeholder="What's happening?"
+            placeholder="What's on your mind?"
             maxLength={420}
           ></textarea>
         </div>
-        <div className="text-sm mt-2">
+        <div className="text-sm mt-4">
           <label htmlFor="image">Upload image (if you want): </label>
           <input
             type="file"
             name="image"
             id="image"
             accept="image/*"
-            className="rounded-lg bg-white text-slate-400 outline-none"
+            className=" bg-white text-slate-400 outline-none"
           />
         </div>
         <button
           type="submit"
-          className="text-slate-700 pl-2 pr-2 mt-4 rounded-lg border-2 pt-2 pb-2"
+          className="text-white bg-blue-600 p-2 mt-4 shadow-lg shadow-blue-600/50"
         >
-          Create Post
+          Enter the Arcadia
         </button>
       </form>
     </div>

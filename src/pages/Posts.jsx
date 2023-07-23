@@ -14,7 +14,7 @@ export default function Posts() {
     fetchPolicy: "network-only",
   });
   const [likePost] = useMutation(LIKE_POST, {
-    refetchQueries: [ALL_POSTS ],
+    refetchQueries: [ALL_POSTS],
     fetchPolicy: "network-only",
   });
 
@@ -65,8 +65,6 @@ export default function Posts() {
     }
   };
 
-  // bookmark post check code to be
-
   // like the post
   const checkLike = (post) => {
     const token =
@@ -79,7 +77,7 @@ export default function Posts() {
     if (post.likedBy.find((user) => user.handle === currentUser.handle)) {
       return (
         <button className="like" onClick={handleLike}>
-          🧡
+          💙
         </button>
       );
     } else {
@@ -105,63 +103,64 @@ export default function Posts() {
   return (
     <div className="posts mt-0 ml-[350px]">
       <NewPost />
-
       <button
-        className="border-2 pl-4 pr-4 mt-8 rounded-lg text-black pt-1 pb-1 bg-white hover:bg-black/10 hover:border-white"
+        className="bg-black text-white mt-6 p-2"
         onClick={refetchPosts}
       >
         Show latest
       </button>
       <div className="mt-2">
-        {posts
-          .map((post) => (
-            <div
-              className="bg-white p-6 rounded-lg shadow-lg mt-8 mb-4"
-              key={post.id}
-            >
-              <div>
-                <img
-                  className="rounded-lg left-0 ml-0"
-                  src={
-                    post.postedBy.profilePicture ||
-                    "https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png"
-                  }
-                  width="40px"
-                  alt={post.postedBy.username}
-                />
-              </div>
-              <div className="mt-4">
-                {checkUser(post)}
-                <span className="text-slate-400">
-                  {post.postedBy.username} |{" "}
-                  <span className="handlena">
-                    <a
-                      href={`/profile/${post.postedBy.handle}`}
-                      className="text-gray-800"
-                    >
-                      {post.postedBy.handle}
-                    </a>
-                  </span>
-                  &nbsp;*{" "}
-                  <span className="date">
-                    {new Date(post.createdAt).toLocaleString()}
-                  </span>
+        {posts.map((post) => (
+          <div
+            className="bg-white p-6 mt-6 mb-4 border-2 border-black"
+            key={post.id}
+          >
+            <div>
+              <img
+                className="left-0 ml-0"
+                src={
+                  post.postedBy.profilePicture ||
+                  "https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png"
+                }
+                width="40px"
+                alt={post.postedBy.username}
+              />
+            </div>
+            <div className="mt-4">
+              {checkUser(post)}
+              <span className="text-slate-400">
+                {post.postedBy.username} |{" "}
+                <span className="handlena">
+                  <a
+                    href={`/profile/${post.postedBy.handle}`}
+                    className="text-gray-800"
+                  >
+                    {post.postedBy.handle}
+                  </a>
                 </span>
-                <h4 className="mt-2 font-bold text-xl">{post.title}</h4>
-                <p className="text-slate-700 pb-4">{post.content}</p>
+                &nbsp;*{" "}
+                <span className="date">
+                  {new Date(post.createdAt).toLocaleString()}
+                </span>
+              </span>
+              <h4 className="mt-2 font-bold text-xl">{post.title}</h4>
+              <p className="text-slate-700">{post.content}</p>
+              <a href={post.postImage}>
                 <img
                   src={post.postImage}
-                  className="rounded-lg"
+                  className="shadow-2xl mt-6"
                   alt={post.title ? "" : null}
                 />
-                <br />
-                <div className="text-slate-500">
-                  {post.likedBy.length} {checkLike(post)}
-                  <div className="rounded-lg mt-2">BKMRK</div>
-                </div>
+              </a>
+            </div>
+            <div className="mt-6">
+              <div className="flex">
+                {checkLike(post)}
+                <span className="ml-2">{post.likedBy.length}</span>
               </div>
             </div>
-          ))}
+          </div>
+        ))}
       </div>
     </div>
   );

@@ -12,7 +12,6 @@ import Bookmarks from "./pages/Bookmarks";
 import Discover from "./pages/Discover";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import ArtistSignup from "./pages/ArtistSignup";
 
 // lazy load some components
 const Landing = lazy(() => import("./pages/Landing"));
@@ -31,7 +30,6 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/roadmap" element={<Roadmap />} />
         <Route path="/artists" element={<ArtistPlans />} />
-        <Route path="/artist-signup" element={<ArtistSignup />} />
 
         {/* Protected routes */}
         <Route

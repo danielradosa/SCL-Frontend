@@ -21,9 +21,9 @@ const LogoutButton = () => {
     <div className="logout">
       <button
         onClick={logout}
-        className="bg-white rounded-lg text-slate-400 pl-4 pr-4 mt-6 mr-6 shadow-sm"
+        className="bg-blue-600 text-white pr-3 pl-8 pb-2 pt-1"
       >
-        Logout
+        Log out
       </button>
     </div>
   );

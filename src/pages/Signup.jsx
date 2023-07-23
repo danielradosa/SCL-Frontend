@@ -59,15 +59,12 @@ const Signup = () => {
   );
 
   return (
-    <div className="mx-auto w-full backdrop-blur-xl bg-white rounded-xl">
+    <div className="w-[960px] flex-col">
       <HeaderLanding />
-      <div className="mt-12 2xl:mt-20">
-        <h3 className="text-center text-3xl pb-4">
-          Registruj sa <i className="border-b-2 border-black/30">zadarmo</i>
-        </h3>
-        <form onSubmit={handleSubmit} className="grid w-64 2xl:w-96 mt-6">
+      <h3 className="text-2xl pb-4">Sign up</h3>
+        <form onSubmit={handleSubmit} className="mt-4 flex-col flex w-[360px] mx-0">
           <input
-            className="pl-6 pt-3 pb-3 pr-6 rounded-3xl border-2 border-black text-orange-400 font-bold focus:bg-white"
+            className="p-3 rounded-[5px] border border-black/5 text-blue-600  focus:bg-white"
             type="email"
             placeholder="E-mail"
             required
@@ -77,19 +74,19 @@ const Signup = () => {
           />{" "}
           <br />
           <input
-            className="pl-6 pt-3 pb-3 pr-6 rounded-3xl border-2 border-black text-orange-400 font-bold focus:bg-white"
+            className="p-3 rounded-[5px] border border-black/5 text-blue-600  focus:bg-white"
             type="password"
             required
-            placeholder="Heslo"
+            placeholder="Password"
             value={password}
             minLength={6}
             onChange={(e) => setPassword(e.target.value)}
           />{" "}
           <br />
           <input
-            className="pl-6 pt-3 pb-3 pr-6 rounded-3xl border-2 border-black text-orange-400 font-bold focus:bg-white"
+            className="p-3 rounded-[5px] border border-black/5 text-blue-600  focus:bg-white"
             type="password"
-            placeholder="Heslo Znovu"
+            placeholder="Password again"
             value={passwordC}
             required
             minLength={6}
@@ -97,9 +94,9 @@ const Signup = () => {
           />{" "}
           <br />
           <input
-            className="pl-6 pt-3 pb-3 pr-6 rounded-3xl border-2 border-black text-orange-400 font-bold focus:bg-white"
+            className="p-3 rounded-[5px] border border-black/5 text-blue-600  focus:bg-white"
             type="text"
-            placeholder="Tvoja @ Prezývka"
+            placeholder="Your @"
             value={handle}
             minLength={4}
             required
@@ -107,34 +104,36 @@ const Signup = () => {
           />{" "}
           <br />
           <input
-            className="pl-6 pt-3 pb-3 pr-6 rounded-3xl border-2 border-black text-orange-400 font-bold focus:bg-white"
+            className="p-3 rounded-[5px] border border-black/5 text-blue-600  focus:bg-white"
             type="text"
-            placeholder="Použivateľské Meno"
+            placeholder="Username"
             value={username}
             required
             minLength={4}
             onChange={(e) => setUsername(e.target.value)}
           />{" "}
           <br />
+          <p className="text-center text-red-500">{error}</p>
           <button
             type="submit"
-            className="w-1/2 m-auto text-center transition-all duration-300 ease-out hover:ease-in mt-6 font-bold  pt-2 pb-2 bg-orange-400 text-white rounded-3xl text-lg bg-gradient-to-r from-orange-400 to-orange-600 hover:from-orange-600 hover:to-orange-400"
+            className="w-1/2 m-auto text-center transition-all duration-300 ease-out hover:ease-in mt-2 font-bold  
+            pt-2 pb-2 bg-blue-600 text-white rounded-[5px] bg-gradient-to-r from-blue-400 to-blue-600 
+            hover:from-blue-600 hover:to-blue-400 mx-0"
           >
-            Vytvoriť účet
+            Create account
           </button>
-        </form>
 
-        <p className="text-center pt-4 mt-2">
-          Už máš účet?{" "}
+          <p className="mt-6">
+          Already have an account?{" "}
           <a
             href="/login"
-            className="pl-4 pr-4 pt-2 pb-2 border border-black rounded-3xl text-sm 2xl:ml-2"
+            className="m-0 text-blue-600 underline"
           >
-            Prihlásiť sa
+            Login
           </a>
         </p>
+        </form>
       </div>
-    </div>
   );
 };
 

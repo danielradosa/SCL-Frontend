@@ -44,7 +44,7 @@ export default function Login() {
     <div className="w-[960px] flex-col">
       <HeaderLanding />
       <div>
-        <h3 className="text-2xl pb-4">Login</h3>
+        <h3 className="text-2xl">Login</h3>
         <form
           onSubmit={handleLogin}
           className="mt-4 flex-col flex w-[360px] mx-0"

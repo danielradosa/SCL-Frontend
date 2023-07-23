@@ -15,9 +15,9 @@ const MidLanding = () => {
             Login
           </button>
         </a>
-        <a href="/register">
+        <a href="/signup">
           <button className="text-blue-600 underline">
-            Register
+            Sign up
           </button>
         </a>
       </div>
