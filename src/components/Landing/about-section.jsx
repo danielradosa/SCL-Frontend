@@ -5,9 +5,9 @@ const AboutSection = () => {
     <div className="w-[960px]">
      <h2 className="mt-6 mb-6 text-2xl">About</h2>
      <p>
-        Arcadia is a social media platform just like Twitter, but it actually
-        works and doesn't use any algorithms. It was built in a month or so.
-        Probably less. It also has only posting and liking features so far.
+        I am directly trying to compete with Elon's X. So it would be somewhat helpful if you
+        gave this one man team social network a chance. Foundation was built in like 4-5 days.
+        The backend with frontend and basic authentication.
      </p>
     </div>
   );
