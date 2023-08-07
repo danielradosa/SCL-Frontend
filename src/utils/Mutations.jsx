@@ -62,7 +62,6 @@ export const LOGIN_MUTATION = gql`
         email
         profilePicture
         handle
-        artist
         role
         followers
         following 
@@ -90,7 +89,6 @@ export const SIGNUP_MUTATION = gql`
     $handle: String!
     $username: String!
     $role: String!
-    $artist: Boolean!
   ) {
     register(
       email: $email
@@ -163,7 +161,6 @@ export const TOGGLE_ARTIST = gql`
   mutation toggleArtist($id: ID!) {
     toggleArtist(id: $id) {
       id
-      artist
     }
   }
 `;
