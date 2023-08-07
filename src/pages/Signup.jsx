@@ -12,7 +12,6 @@ const Signup = () => {
   const [username, setUsername] = useState("");
   const [error, setError] = useState("");
   const role = "USER";
-  const artist = false;
 
   const [signupMutation] = useMutation(SIGNUP_MUTATION);
 
@@ -42,7 +41,7 @@ const Signup = () => {
 
       try {
         await signupMutation({
-          variables: { email, password, handle, username, role, artist },
+          variables: { email, password, handle, username, role },
         });
         setError("");
         Swal.fire({
