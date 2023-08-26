@@ -49,7 +49,9 @@ export default function Login() {
           onSubmit={handleLogin}
           className="mt-4 flex-col flex w-[360px] mx-0"
         >
-          <div className="mx-0 mb-6">{loggedInState === true ? "Logging in..." : ""}</div>
+          <div className="mx-0 mb-6">
+            {loggedInState === true ? "Logging in..." : ""}
+          </div>
           <input
             className="p-3 rounded-[5px] border border-black/5 text-blue-600  focus:bg-white"
             type="email"
